@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/widgets/button_widgets.dart';
-import 'package:quiz_app/widgets/text_button_widgets.dart';
 
 import '../theme/colors.dart';
 import '../theme/images.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
+import '../widgets/button_widgets.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/text_button_widgets.dart';
 import '../widgets/text_field_widgets.dart';
 
-class SignInPage extends StatefulWidget {
-  SignInPage({Key key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  SignUpPage({Key key}) : super(key: key);
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -32,32 +32,32 @@ class _SignInPageState extends State<SignInPage> {
                 children: [
                   // Logo
                   signInPageLogo(),
-                  //* Login widgets
+                  //* Register widgets
                   Form(
                     key: _formKey,
                     child: Container(
                       child: Column(
                         children: [
                           // Login title
-                          loginTitle(),
+                          registerTitle(),
                           SizedBox(height: 20),
+                          // Name text field
+                          NameTextFormFiledWidget(),
+                          SizedBox(height: 10),
                           // Email text field
                           EmailTextFormFiledWidget(),
                           SizedBox(height: 10),
                           // password text field
                           PasswordTextFormFiled(),
-                          SizedBox(height: 10),
-                          // Forget password
-                          forgetPassword(),
                           SizedBox(height: 20),
                           // Login Button
                           LongButtonWidget(
-                            text: signInTextEn,
+                            text: signUpTextEn,
                             color: greenColor,
                           ),
                           SizedBox(height: 25),
                           // Register now
-                          loginNow(),
+                          registerNow(),
                           SizedBox(height: 25),
                         ],
                       ),
@@ -72,38 +72,27 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  Row loginNow() {
+  Row registerNow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          dontHaveAccountTextEn,
+          haveaccountTextEn,
           style: textButtonBigEnStyle,
         ),
         TextButtonWidget(
-          text: registerNowTextEn,
+          text: loginNowTextEn,
           textStyle: textButtonBigBoldGreenEnStyle,
         ),
       ],
     );
   }
 
-  Align forgetPassword() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: TextButtonWidget(
-        text: forgetPwTextEn,
-        rout: '',
-        textStyle: textButtonBigEnStyle,
-      ),
-    );
-  }
-
-  Align loginTitle() {
+  Align registerTitle() {
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        loginTitleTextEn,
+        registerTitleTextEn,
         style: heading1GreenEnStyle,
       ),
     );

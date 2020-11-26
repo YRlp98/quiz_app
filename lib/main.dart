@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/pages/sign_up_page.dart';
 
 import 'pages/sign_in_page.dart';
 import 'theme/colors.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Quiz app',
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: SignIn(),
+      home: SignUpPage(),
     );
   }
 }

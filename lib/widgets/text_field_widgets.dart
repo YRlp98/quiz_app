@@ -38,6 +38,38 @@ class EmailTextFormFiledWidget extends StatelessWidget {
   }
 }
 
+//* Name text filed
+class NameTextFormFiledWidget extends StatelessWidget {
+  String name;
+
+  NameTextFormFiledWidget({
+    Key key,
+    this.name,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: (value) {
+        return value.isEmpty ? emptyEmailErrorTextEn : null;
+      },
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: greyColor,
+          ),
+        ),
+        hintText: nameTextEn,
+        hintStyle: hintEnStyle,
+      ),
+      onChanged: (value) {
+        name = value;
+        print('EMAIL: ' + name);
+      },
+    );
+  }
+}
+
 //* Password text filed
 class PasswordTextFormFiled extends StatefulWidget {
   PasswordTextFormFiled({
