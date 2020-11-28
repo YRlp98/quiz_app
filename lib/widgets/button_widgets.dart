@@ -6,11 +6,13 @@ import '../theme/text_style.dart';
 class LongButtonWidget extends StatelessWidget {
   final String text;
   final Color color;
+  final Widget widget;
 
   const LongButtonWidget({
     Key key,
     @required this.text,
     this.color,
+    this.widget,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,12 @@ class LongButtonWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => widget,
+          ),
+        );
         print('LONG BUTTON');
       },
     );

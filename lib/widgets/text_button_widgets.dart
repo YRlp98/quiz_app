@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class TextButtonWidget extends StatelessWidget {
   final String text;
   final TextStyle textStyle;
-  final String rout;
+  final Widget widget;
 
   const TextButtonWidget({
     Key key,
     @required this.text,
-    this.rout,
+    this.widget,
     this.textStyle,
   }) : super(key: key);
 
@@ -22,7 +22,12 @@ class TextButtonWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        //TODO: Rout to forget password page
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => widget,
+          ),
+        );
         print('TEXT BUTTON WIDGET');
       },
     );

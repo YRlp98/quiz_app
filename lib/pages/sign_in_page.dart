@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/widgets/button_widgets.dart';
-import 'package:quiz_app/widgets/text_button_widgets.dart';
 
 import '../theme/colors.dart';
 import '../theme/images.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
+import '../widgets/button_widgets.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/text_button_widgets.dart';
 import '../widgets/text_field_widgets.dart';
+import 'sign_up_page.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({Key key}) : super(key: key);
@@ -57,7 +58,7 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           SizedBox(height: 25),
                           // Register now
-                          loginNow(),
+                          registerNow(),
                           SizedBox(height: 25),
                         ],
                       ),
@@ -72,7 +73,7 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  Row loginNow() {
+  Row registerNow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -83,6 +84,7 @@ class _SignInPageState extends State<SignInPage> {
         TextButtonWidget(
           text: registerNowTextEn,
           textStyle: textButtonBigBoldGreenEnStyle,
+          widget: SignUpPage(),
         ),
       ],
     );
@@ -93,7 +95,6 @@ class _SignInPageState extends State<SignInPage> {
       alignment: Alignment.centerRight,
       child: TextButtonWidget(
         text: forgetPwTextEn,
-        rout: '',
         textStyle: textButtonBigEnStyle,
       ),
     );

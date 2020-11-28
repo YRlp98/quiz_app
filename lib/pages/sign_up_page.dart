@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/pages/sign_in_page.dart';
 
 import '../theme/colors.dart';
 import '../theme/images.dart';
@@ -57,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           SizedBox(height: 25),
                           // Register now
-                          registerNow(),
+                          loginNow(),
                           SizedBox(height: 25),
                         ],
                       ),
@@ -72,7 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Row registerNow() {
+  Row loginNow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -83,6 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextButtonWidget(
           text: loginNowTextEn,
           textStyle: textButtonBigBoldGreenEnStyle,
+          widget: SignInPage(),
         ),
       ],
     );
