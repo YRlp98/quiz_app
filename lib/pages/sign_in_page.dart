@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/pages/home_page.dart';
-import 'package:quiz_app/services/auth.dart';
-import 'package:quiz_app/widgets/loading_widgets.dart';
 
+import '../services/auth.dart';
 import '../theme/colors.dart';
 import '../theme/images.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/loading_widgets.dart';
 import '../widgets/text_button_widgets.dart';
 import '../widgets/text_field_widgets.dart';
+import 'home_page.dart';
 import 'sign_up_page.dart';
 
 class SignInPage extends StatefulWidget {
@@ -23,7 +23,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String email, password;
-  bool isLoading = false;
+  bool _isLoading = false;
   AuthServvice authServvice = new AuthServvice();
 
   @override
@@ -40,7 +40,7 @@ class _SignInPageState extends State<SignInPage> {
                   // Logo
                   signInPageLogo(),
                   //* Login widgets
-                  isLoading
+                  _isLoading
                       ? Container(
                           // Loading
                           child: Center(
@@ -138,7 +138,7 @@ class _SignInPageState extends State<SignInPage> {
     // T0 check user entered the validate inputs
     if (_formKey.currentState.validate()) {
       setState(() {
-        isLoading = true;
+        _isLoading = true;
       });
 
       // Login and naviage to home scren
@@ -147,7 +147,7 @@ class _SignInPageState extends State<SignInPage> {
           print(value);
           if (value != null) {
             setState(() {
-              isLoading = false;
+              _isLoading = false;
             });
 
             Navigator.pushReplacement(
