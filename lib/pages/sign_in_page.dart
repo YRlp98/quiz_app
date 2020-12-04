@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/pages/home_page.dart';
+import 'package:quiz_app/services/auth.dart';
+import 'package:quiz_app/widgets/loading_widgets.dart';
 
 import '../theme/colors.dart';
 import '../theme/images.dart';
@@ -18,7 +21,10 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String email, password;
+  bool isLoading = false;
+  AuthServvice authServvice = new AuthServvice();
 
   @override
   Widget build(BuildContext context) {
@@ -34,36 +40,44 @@ class _SignInPageState extends State<SignInPage> {
                   // Logo
                   signInPageLogo(),
                   //* Login widgets
-                  Form(
-                    key: _formKey,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          // Login title
-                          loginTitle(),
-                          SizedBox(height: 20),
-                          // Email text field
-                          EmailTextFormFiledWidget(),
-                          SizedBox(height: 10),
-                          // password text field
-                          PasswordTextFormFiled(),
-                          SizedBox(height: 10),
-                          // Forget password
-                          forgetPassword(),
-                          SizedBox(height: 20),
-                          // Login Button
-                          LongButtonWidget(
-                            text: signInTextEn,
-                            color: greenColor,
+                  isLoading
+                      ? Container(
+                          // Loading
+                          child: Center(
+                            child: CircularLoadingWidget(),
                           ),
-                          SizedBox(height: 25),
-                          // Register now
-                          registerNow(),
-                          SizedBox(height: 25),
-                        ],
-                      ),
-                    ),
-                  ),
+                        )
+                      : Form(
+                          key: _formKey,
+                          child: Container(
+                            child: Column(
+                              children: [
+                                // Login title
+                                loginTitle(),
+                                SizedBox(height: 20),
+                                // Email text field
+                                EmailTextFormFiledWidget(),
+                                SizedBox(height: 10),
+                                // password text field
+                                PasswordTextFormFiled(),
+                                SizedBox(height: 10),
+                                // Forget password
+                                forgetPassword(),
+                                SizedBox(height: 20),
+                                // Login Button
+                                LongButtonWidget(
+                                  text: signInTextEn,
+                                  color: greenColor,
+                                  btnOnTap: signIn,
+                                ),
+                                SizedBox(height: 25),
+                                // Register now
+                                registerNow(),
+                                SizedBox(height: 25),
+                              ],
+                            ),
+                          ),
+                        ),
                 ],
               ),
             ),
@@ -118,5 +132,33 @@ class _SignInPageState extends State<SignInPage> {
         color: greenColor,
       ),
     );
+  }
+
+  signIn() {
+    // T0 check user entered the validate inputs
+    if (_formKey.currentState.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+
+      // Login and naviage to home scren
+      authServvice.signInEmailAndPass(email, password).then(
+        (value) {
+          print(value);
+          if (value != null) {
+            setState(() {
+              isLoading = false;
+            });
+
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ),
+            );
+          }
+        },
+      );
+    }
   }
 }

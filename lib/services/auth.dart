@@ -9,23 +9,29 @@ class AuthServvice {
     return user != null ? FUser(uId: user.uid) : null;
   }
 
-  // sign up function
+  // Sign up function
   Future signUpWithEmailandPassword(String email, String password) async {
     try {
-      UserCredential userCredential = await _auth
-          .createUserWithEmailAndPassword(email: email, password: password);
-      FirebaseUser firebaseUser = userCredential.user;
+      AuthResult authResult = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser firebaseUser = authResult.user;
+      return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());
     }
   }
 
   // Sign in function
-  signInEmailAndPass(String email, String password) async {
+  signInEmailAndPass(String email, String password) {
     try {
-      UserCredential userCredential =
-          await _auth.signInWithEmailAndPassword(email: null, password: null);
-      FirebaseUser firebaseUser = userCredential.user;
+      AuthResult authResult;
+      _auth.signInWithEmailAndPassword(email: email, password: password).then(
+        (value) {
+          return authResult = value;
+        },
+      );
+      print('SIGN =====' + authResult.toString());
+      FirebaseUser firebaseUser = authResult.user;
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());
