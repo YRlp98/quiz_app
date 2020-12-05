@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/pages/home_page.dart';
-import 'package:quiz_app/widgets/loading_widgets.dart';
 
 import '../services/auth.dart';
 import '../theme/colors.dart';
@@ -9,8 +7,10 @@ import '../theme/strings.dart';
 import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/loading_widgets.dart';
 import '../widgets/text_button_widgets.dart';
 import '../widgets/text_field_widgets.dart';
+import 'home_page.dart';
 import 'sign_in_page.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -125,12 +125,17 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   signUp() {
+     // T0 check user entered the validate inputs
     if (_formKey.currentState.validate()) {
       setState(() {
         _isLoading = true;
       });
 
-      authServvice.signUpWithEmailandPassword(email, password).then(
+      // Sign-up and naviage to home page
+      authServvice
+          .signUpWithEmailandPassword(EmailTextFormFiledWidget.email,
+              PasswordTextFormFiledState.password)
+          .then(
         (value) {
           if (value != null) {
             setState(() {

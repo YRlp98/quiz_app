@@ -141,15 +141,16 @@ class _SignInPageState extends State<SignInPage> {
         _isLoading = true;
       });
 
-      // Login and naviage to home scren
-      authServvice.signInEmailAndPass(email, password).then(
+      // Login and naviage to home page
+      authServvice
+          .signInEmailAndPass(EmailTextFormFiledWidget.email,
+              PasswordTextFormFiledState.password)
+          .then(
         (value) {
-          print(value);
           if (value != null) {
             setState(() {
               _isLoading = false;
             });
-
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(

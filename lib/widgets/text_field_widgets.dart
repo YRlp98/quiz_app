@@ -8,11 +8,10 @@ import 'icon_widgets.dart';
 
 //* Email text filed
 class EmailTextFormFiledWidget extends StatelessWidget {
-  String email;
+  static String email;
 
   EmailTextFormFiledWidget({
     Key key,
-    this.email,
   }) : super(key: key);
 
   @override
@@ -40,11 +39,10 @@ class EmailTextFormFiledWidget extends StatelessWidget {
 
 //* Name text filed
 class NameTextFormFiledWidget extends StatelessWidget {
-  String name;
+  static String name;
 
   NameTextFormFiledWidget({
     Key key,
-    this.name,
   }) : super(key: key);
 
   @override
@@ -77,12 +75,12 @@ class PasswordTextFormFiled extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _PasswordTextFormFiledState createState() => _PasswordTextFormFiledState();
+  PasswordTextFormFiledState createState() => PasswordTextFormFiledState();
 }
 
-class _PasswordTextFormFiledState extends State<PasswordTextFormFiled> {
+class PasswordTextFormFiledState extends State<PasswordTextFormFiled> {
   bool _showPassword = false;
-  String password;
+  static String password;
 
   @override
   Widget build(BuildContext context) {
