@@ -26,12 +26,6 @@ class AuthServvice {
     try {
       AuthResult authResult = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      // AuthResult authResult;
-      // _auth.signInWithEmailAndPassword(email: email, password: password).then(
-      //   (value) {
-      //     return authResult = value;
-      //   },
-      // );
       FirebaseUser firebaseUser = authResult.user;
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {

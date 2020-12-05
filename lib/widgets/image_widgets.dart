@@ -6,12 +6,16 @@ class ImageWidget extends StatelessWidget {
   final String image;
   final double height;
   final double width;
+  final double radius;
+  final Color color;
 
   const ImageWidget({
     Key key,
     @required this.image,
     this.height,
     this.width,
+    this.color,
+    this.radius,
   }) : super(key: key);
 
   @override
@@ -19,6 +23,7 @@ class ImageWidget extends StatelessWidget {
     return Container(
       width: width,
       height: height,
+      color: color,
       child: Image.asset(
         image,
       ),
@@ -49,6 +54,39 @@ class SVGImageWidget extends StatelessWidget {
         color: color,
         height: height,
         width: width,
+      ),
+    );
+  }
+}
+
+//* Radius Image
+class RadiusImageWidget extends StatelessWidget {
+  final String image;
+  final double height;
+  final double width;
+  final double radius;
+  final Color color;
+
+  const RadiusImageWidget({
+    Key key,
+    @required this.image,
+    @required this.radius,
+    this.height,
+    this.width,
+    this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(radius),
+      child: Container(
+        width: width,
+        height: height,
+        color: color,
+        child: Image.asset(
+          image,
+        ),
       ),
     );
   }

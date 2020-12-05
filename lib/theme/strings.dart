@@ -9,6 +9,10 @@ final passwordTextEn = 'Password';
 final signInTextEn = 'Sign in';
 final signUpTextEn = 'Sign up';
 
+// Messages
+final helloTextEn = 'Hello, user';
+final letsStartQuizTextEn = "Let's start your quiz!";
+
 // buttons
 final forgetPwTextEn = 'Forget passhowrd?';
 final dontHaveAccountTextEn = "Dont't have an account? ";

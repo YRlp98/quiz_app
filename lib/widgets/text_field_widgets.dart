@@ -99,8 +99,8 @@ class PasswordTextFormFiledState extends State<PasswordTextFormFiled> {
         hintStyle: hintEnStyle,
         suffixIcon: GestureDetector(
           child: _showPassword
-              ? TextFieldSVGIconsWidgets(icon: showIcon)
-              : TextFieldSVGIconsWidgets(icon: hideIcon),
+              ? TextFieldSVGIconsWidget(icon: showIcon)
+              : TextFieldSVGIconsWidget(icon: hideIcon),
           onTap: () {
             setState(() {
               _showPassword = !_showPassword;
