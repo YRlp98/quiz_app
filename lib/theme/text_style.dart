@@ -39,8 +39,8 @@ final TextStyle heading4BlackEnStyle = TextStyle(
 
 // Heading 5
 
-// Small
-final TextStyle smallBlackEnStyle = TextStyle(
+// Heading 6
+final TextStyle heaing6BlackEnStyle = TextStyle(
   color: blakColor,
   fontSize: 12,
   fontFamily: 'Poppins',
@@ -49,7 +49,7 @@ final TextStyle smallBlackEnStyle = TextStyle(
 
 // Paragraph
 
-// text button
+// text buttons
 final TextStyle textButtonEnStyle = TextStyle(
   color: greyColor,
   fontSize: 13,
@@ -75,6 +75,14 @@ final TextStyle textButtonBigBoldGreenEnStyle = TextStyle(
 final TextStyle buttonEnStyle = TextStyle(
   color: whiteColor,
   fontSize: 14,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w400,
+);
+
+// icon
+final TextStyle icondarkestGreyEnStyle = TextStyle(
+  color: darkestGreyColor,
+  fontSize: 11,
   fontFamily: 'Poppins',
   fontWeight: FontWeight.w400,
 );

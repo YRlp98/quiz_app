@@ -10,7 +10,7 @@ import '../widgets/image_widgets.dart';
 import '../widgets/loading_widgets.dart';
 import '../widgets/text_button_widgets.dart';
 import '../widgets/text_field_widgets.dart';
-import 'home_page.dart';
+import 'main_page.dart';
 import 'sign_in_page.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -125,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   signUp() {
-     // T0 check user entered the validate inputs
+    // T0 check user entered the validate inputs
     if (_formKey.currentState.validate()) {
       setState(() {
         _isLoading = true;
@@ -144,7 +144,7 @@ class _SignUpPageState extends State<SignUpPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => HomePage(),
+                builder: (context) => MainPage(),
               ),
             );
           }

@@ -8,6 +8,8 @@ final nameTextEn = 'Name';
 final passwordTextEn = 'Password';
 final signInTextEn = 'Sign in';
 final signUpTextEn = 'Sign up';
+final homeTextEn = 'Home';
+final settingsTextEn = 'Settings';
 
 // Messages
 final helloTextEn = 'Hello, user';

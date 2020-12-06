@@ -24,18 +24,8 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         leading: appbarAvatar(),
         title: appbarTexts(),
-        // * appbar icons
-        // notifications
         actions: [
-          IconButtonWidget(
-            icon: notificationstiIcon,
-            height: 33,
-            width: 33,
-            radius: 10,
-            backgroundColor: whiteColor,
-            iconColor: blakColor,
-            btnOnTap: () {},
-          ),
+          appbarNotificationsIcon(),
           SizedBox(width: 10),
         ],
       ),
@@ -47,6 +37,18 @@ class _HomePageState extends State<HomePage> {
           child: Text('BODY'),
         ),
       ),
+    );
+  }
+
+  IconButtonWidget appbarNotificationsIcon() {
+    return IconButtonWidget(
+      icon: notificationstiIcon,
+      height: 33,
+      width: 33,
+      radius: 10,
+      backgroundColor: whiteColor,
+      iconColor: blakColor,
+      btnOnTap: () {},
     );
   }
 
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.centerLeft,
           child: Text(
             letsStartQuizTextEn,
-            style: smallBlackEnStyle,
+            style: heaing6BlackEnStyle,
           ),
         ),
       ],
