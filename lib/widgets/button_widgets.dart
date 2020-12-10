@@ -14,7 +14,7 @@ class LongButtonWidget extends StatelessWidget {
   const LongButtonWidget({
     Key key,
     @required this.text,
-    this.color,
+    @required this.color,
     this.widget,
     this.btnOnTap,
   }) : super(key: key);

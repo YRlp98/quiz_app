@@ -5,6 +5,7 @@ import '../theme/icons.dart';
 import '../theme/strings.dart';
 import '../widgets/fab_widgets.dart';
 import '../widgets/icon_widgets.dart';
+import 'create_quiz_page.dart';
 import 'home_page.dart';
 import 'settings_page.dart';
 
@@ -40,6 +41,12 @@ class _MainPageState extends State<MainPage> {
       //* FAB
       floatingActionButton: FABWidget(
         ontap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CreateQuizPage(),
+            ),
+          );
           print('FAB');
         },
       ),

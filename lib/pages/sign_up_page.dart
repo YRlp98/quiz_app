@@ -22,7 +22,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
-  String email, password;
+  // String email, password;
   bool _isLoading = false;
   AuthServvice authServvice = new AuthServvice();
 
@@ -56,13 +56,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                 registerTitle(),
                                 SizedBox(height: 20),
                                 // Name text field
-                                NameTextFormFiledWidget(),
+                                TextFormFiledWidget(hint: nameTextEn),
                                 SizedBox(height: 10),
                                 // Email text field
-                                EmailTextFormFiledWidget(),
+                                TextFormFiledWidget(hint: emailTextEn),
                                 SizedBox(height: 10),
                                 // password text field
-                                PasswordTextFormFiled(),
+                                PasswordTextFormFiledWidget(),
                                 SizedBox(height: 20),
                                 // Login Button
                                 LongButtonWidget(
@@ -133,8 +133,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
       // Sign-up and naviage to home page
       authServvice
-          .signUpWithEmailandPassword(EmailTextFormFiledWidget.email,
-              PasswordTextFormFiledState.password)
+          .signUpWithEmailandPassword(TextFormFiledWidget.input,
+              PasswordTextFormFiledWidgetState.password)
           .then(
         (value) {
           if (value != null) {

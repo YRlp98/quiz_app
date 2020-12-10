@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //* Appbar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -29,6 +30,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(width: 10),
         ],
       ),
+      //* Body
       body: SafeArea(
         child: Container(
           width: 400,
@@ -40,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  //* Appbar
   IconButtonWidget appbarNotificationsIcon() {
     return IconButtonWidget(
       icon: notificationstiIcon,
@@ -88,4 +91,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  //* Body
+
 }

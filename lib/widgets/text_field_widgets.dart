@@ -6,12 +6,14 @@ import '../theme/strings.dart';
 import '../theme/text_style.dart';
 import 'icon_widgets.dart';
 
-//* Email text filed
-class EmailTextFormFiledWidget extends StatelessWidget {
-  static String email;
+//* Text field
+class TextFormFiledWidget extends StatelessWidget {
+  static String input;
+  final String hint;
 
-  EmailTextFormFiledWidget({
+  TextFormFiledWidget({
     Key key,
+    @required this.hint,
   }) : super(key: key);
 
   @override
@@ -26,59 +28,30 @@ class EmailTextFormFiledWidget extends StatelessWidget {
             color: greyColor,
           ),
         ),
-        hintText: emailTextEn,
+        hintText: hint,
         hintStyle: hintEnStyle,
       ),
       onChanged: (value) {
-        email = value;
-        print('EMAIL: ' + email);
-      },
-    );
-  }
-}
-
-//* Name text filed
-class NameTextFormFiledWidget extends StatelessWidget {
-  static String name;
-
-  NameTextFormFiledWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (value) {
-        return value.isEmpty ? emptyEmailErrorTextEn : null;
-      },
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: greyColor,
-          ),
-        ),
-        hintText: nameTextEn,
-        hintStyle: hintEnStyle,
-      ),
-      onChanged: (value) {
-        name = value;
-        print('EMAIL: ' + name);
+        input = value;
+        print('INPUT: ' + input);
       },
     );
   }
 }
 
 //* Password text filed
-class PasswordTextFormFiled extends StatefulWidget {
-  PasswordTextFormFiled({
+class PasswordTextFormFiledWidget extends StatefulWidget {
+  PasswordTextFormFiledWidget({
     Key key,
   }) : super(key: key);
 
   @override
-  PasswordTextFormFiledState createState() => PasswordTextFormFiledState();
+  PasswordTextFormFiledWidgetState createState() =>
+      PasswordTextFormFiledWidgetState();
 }
 
-class PasswordTextFormFiledState extends State<PasswordTextFormFiled> {
+class PasswordTextFormFiledWidgetState
+    extends State<PasswordTextFormFiledWidget> {
   bool _showPassword = false;
   static String password;
 
