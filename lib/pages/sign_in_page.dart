@@ -22,9 +22,9 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  // String email, password;
   bool _isLoading = false;
   AuthServvice authServvice = new AuthServvice();
+  TextEditingController emailController;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,11 @@ class _SignInPageState extends State<SignInPage> {
                                 loginTitle(),
                                 SizedBox(height: 20),
                                 // Email text field
-                                TextFormFiledWidget(hint: emailTextEn),
+                                TextFormFiledWidget(
+                                  hint: emailTextEn,
+                                  errorMessage: emptyEmailErrorTextEn,
+                                  textEditingController: emailController,
+                                ),
                                 SizedBox(height: 10),
                                 // password text field
                                 PasswordTextFormFiledWidget(),

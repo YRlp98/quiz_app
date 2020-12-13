@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:random_string/random_string.dart';
 
+import '../services/database.dart';
 import '../theme/colors.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
+import '../widgets/loading_widgets.dart';
 import '../widgets/text_field_widgets.dart';
+import 'add_questions_page.dart';
 
 class CreateQuizPage extends StatefulWidget {
   CreateQuizPage({Key key}) : super(key: key);
@@ -15,7 +19,18 @@ class CreateQuizPage extends StatefulWidget {
 
 class _CreateQuizPageState extends State<CreateQuizPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String quizTitle, quizImageURL, quizDescription;
+  String quizId, quizTitle, quizImageUrl, quizDescription;
+  bool _isLoading = false;
+  DataBaseService dataBaseService = new DataBaseService();
+  TextEditingController titleController, imageController, descController;
+
+  @override
+  void initState() {
+    super.initState();
+    titleController = new TextEditingController();
+    imageController = new TextEditingController();
+    descController = new TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,30 +54,44 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Form(
-                    key: _formKey,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          // Title
-                          TextFormFiledWidget(hint: titleTextEn),
-                          SizedBox(height: 10),
-                          // Image
-                          TextFormFiledWidget(hint: imageURLTextEn),
-                          SizedBox(height: 10),
-                          // Description
-                          TextFormFiledWidget(hint: descriptionTextEn),
-                          SizedBox(height: 20),
-                          // Button
-                          LongButtonWidget(
-                            text: createQuizTextEn,
-                            color: greenColor,
-                            btnOnTap: () {},
+                  _isLoading
+                      ? CircularLoadingWidget()
+                      : Form(
+                          key: _formKey,
+                          child: Container(
+                            child: Column(
+                              children: [
+                                // Title
+                                TextFormFiledWidget(
+                                  hint: titleTextEn,
+                                  errorMessage: emptytitleErrorTextEn,
+                                  textEditingController: titleController,
+                                ),
+                                SizedBox(height: 10),
+                                // Image
+                                TextFormFiledWidget(
+                                  hint: imageURLTextEn,
+                                  errorMessage: emptyimageUrlErrorTextEn,
+                                  textEditingController: imageController,
+                                ),
+                                SizedBox(height: 10),
+                                // Description
+                                TextFormFiledWidget(
+                                  hint: descriptionTextEn,
+                                  errorMessage: emptydesciptionErrorTextEn,
+                                  textEditingController: descController,
+                                ),
+                                SizedBox(height: 20),
+                                // Button
+                                LongButtonWidget(
+                                  text: createQuizTextEn,
+                                  color: greenColor,
+                                  btnOnTap: createQuizLine,
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  )
+                        )
                 ],
               ),
             ),
@@ -70,5 +99,30 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
         ),
       ),
     );
+  }
+
+  createQuizLine() async {
+    if (_formKey.currentState.validate()) {
+      quizId = randomAlphaNumeric(16); // create a random ID
+      print('QUIZ ID = ' + quizId);
+      Map<String, String> quizMap = {
+        'quizId': quizId,
+        'quizImageUrl': imageController.text,
+        'quizTitle': titleController.text,
+        'quizDescription': descController.text,
+      };
+
+      await dataBaseService.addQuizData(quizMap, quizId).then((value) => () {
+            setState(() {
+              _isLoading = false;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddQuestionsPage(),
+                ),
+              );
+            });
+          });
+    }
   }
 }

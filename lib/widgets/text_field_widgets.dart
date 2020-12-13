@@ -10,17 +10,21 @@ import 'icon_widgets.dart';
 class TextFormFiledWidget extends StatelessWidget {
   static String input;
   final String hint;
+  final String errorMessage;
+  final TextEditingController textEditingController;
 
   TextFormFiledWidget({
     Key key,
     @required this.hint,
+    @required this.errorMessage,
+    @required this.textEditingController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
-        return value.isEmpty ? emptyEmailErrorTextEn : null;
+        return value.isEmpty ? errorMessage : null;
       },
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -31,6 +35,7 @@ class TextFormFiledWidget extends StatelessWidget {
         hintText: hint,
         hintStyle: hintEnStyle,
       ),
+      controller: textEditingController,
       onChanged: (value) {
         input = value;
         print('INPUT: ' + input);
@@ -60,7 +65,7 @@ class PasswordTextFormFiledWidgetState
     return TextFormField(
       obscureText: !_showPassword,
       validator: (value) {
-        return value.isEmpty ? emptyEmailErrorTextEn : null;
+        return value.isEmpty ? emptyPasswordErrorTextEn : null;
       },
       decoration: InputDecoration(
         border: OutlineInputBorder(
