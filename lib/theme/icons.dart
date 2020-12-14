@@ -6,3 +6,5 @@ const homeLightIcon = 'assets/icons/home_light.svg';
 const homeBoldIcon = 'assets/icons/home_bold.svg';
 const settingsLightIcon = 'assets/icons/settings_light.svg';
 const settingsBoldIcon = 'assets/icons/settings_bold.svg';
+const arrowLeftCircleIcon = 'assets/icons/arrow_left_circle.svg';
+const arrowRightCircleIcon = 'assets/icons/arrow_right_circle.svg';

@@ -10,6 +10,7 @@ class LongButtonWidget extends StatelessWidget {
   final Color color;
   final Widget widget;
   final Function btnOnTap;
+  final double height;
 
   const LongButtonWidget({
     Key key,
@@ -17,6 +18,7 @@ class LongButtonWidget extends StatelessWidget {
     @required this.color,
     this.widget,
     this.btnOnTap,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -43,14 +45,94 @@ class LongButtonWidget extends StatelessWidget {
   }
 }
 
+//* Medium buton
+class MediumButtonWidget extends StatelessWidget {
+  final String text;
+  final Color color;
+  final Function btnOnTap;
+  final double height, width, radius;
+
+  const MediumButtonWidget({
+    Key key,
+    @required this.text,
+    @required this.color,
+    @required this.radius,
+    this.btnOnTap,
+    this.height,
+    this.width,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: color,
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: buttonEnStyle,
+        ),
+      ),
+      onTap: () {
+        btnOnTap();
+        print('MEDIUM BUTTON');
+      },
+    );
+  }
+}
+
+//* Icon button
+class SmallButtonWidget extends StatelessWidget {
+  final String icon;
+  final double width, height, radius;
+  final Color iconColor, backgroundColor;
+  final Function btnOnTap;
+
+  const SmallButtonWidget({
+    Key key,
+    @required this.icon,
+    @required this.radius,
+    this.width,
+    this.height,
+    this.iconColor,
+    this.backgroundColor,
+    this.btnOnTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: backgroundColor,
+        ),
+        margin: const EdgeInsets.all(10),
+        height: height,
+        width: width,
+        child: Container(
+          padding: const EdgeInsets.all(5),
+          child: SvgPicture.asset(icon),
+        ),
+      ),
+      onTap: () {
+        btnOnTap();
+        print('SMALL BUTTON');
+      },
+    );
+  }
+}
+
 //* Icon button
 class IconButtonWidget extends StatelessWidget {
   final String icon;
-  final double width;
-  final double height;
-  final double radius;
-  final Color iconColor;
-  final Color backgroundColor;
+  final double width, height, radius;
+  final Color iconColor, backgroundColor;
   final Function btnOnTap;
 
   const IconButtonWidget({

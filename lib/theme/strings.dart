@@ -16,6 +16,11 @@ final createQuizTextEn = 'Create Quiz';
 final titleTextEn = 'Title';
 final imageURLTextEn = 'Image URL';
 final descriptionTextEn = 'Description';
+final addQuestionTextEn = 'Add Question';
+final questionTextEn = 'Question';
+final answer1TextEn = 'Answer 1 (Correct Answer)';
+final answerTextEn = 'Answer';
+final submitTextEn = 'Submit';
 
 // Messages
 final helloTextEn = 'Hello, user';

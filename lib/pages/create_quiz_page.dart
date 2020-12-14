@@ -88,6 +88,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                   color: greenColor,
                                   btnOnTap: createQuizLine,
                                 ),
+                                SizedBox(height: 25),
                               ],
                             ),
                           ),
