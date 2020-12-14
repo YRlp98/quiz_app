@@ -103,8 +103,14 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
 
   createQuizLine() async {
     if (_formKey.currentState.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
       quizId = randomAlphaNumeric(16); // create a random ID
+
       print('QUIZ ID = ' + quizId);
+
       Map<String, String> quizMap = {
         'quizId': quizId,
         'quizImageUrl': imageController.text,
@@ -112,17 +118,17 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
         'quizDescription': descController.text,
       };
 
-      await dataBaseService.addQuizData(quizMap, quizId).then((value) => () {
-            setState(() {
-              _isLoading = false;
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddQuestionsPage(),
-                ),
-              );
-            });
-          });
+      await dataBaseService.addQuizData(quizMap, quizId).then((value) {
+        setState(() {
+          _isLoading = false;
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddQuestionsPage(),
+            ),
+          );
+        });
+      });
     }
   }
 }
