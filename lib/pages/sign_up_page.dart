@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/helper/helperFunctions.dart';
 
 import '../services/auth.dart';
 import '../theme/colors.dart';
@@ -149,6 +150,8 @@ class _SignUpPageState extends State<SignUpPage> {
             setState(() {
               _isLoading = false;
             });
+            // Save user is logged-in
+            HelperFunctions.saveUserLoggedInDetals(isLoggedIn: true);
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
