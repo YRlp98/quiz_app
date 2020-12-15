@@ -19,9 +19,11 @@ class CreateQuizPage extends StatefulWidget {
 
 class _CreateQuizPageState extends State<CreateQuizPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String quizId, quizTitle, quizImageUrl, quizDescription;
   bool _isLoading = false;
   DataBaseService dataBaseService = new DataBaseService();
+
   TextEditingController titleController, imageController, descController;
 
   @override
@@ -125,7 +127,9 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => AddQuestionsPage(),
+              builder: (context) => AddQuestionsPage(
+                quizId: quizId,
+              ),
             ),
           );
         });
