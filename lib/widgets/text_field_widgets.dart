@@ -38,7 +38,6 @@ class TextFormFiledWidget extends StatelessWidget {
       controller: textEditingController,
       onChanged: (value) {
         input = value;
-        print('INPUT: ' + input);
       },
     );
   }
@@ -88,7 +87,6 @@ class PasswordTextFormFiledWidgetState
       ),
       onChanged: (value) {
         password = value;
-        print('PASSWORD: ' + password);
       },
     );
   }

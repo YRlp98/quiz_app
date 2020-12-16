@@ -34,6 +34,16 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
       answer4Controller;
 
   @override
+  void initState() {
+    super.initState();
+    questionController = new TextEditingController();
+    answer1Controller = new TextEditingController();
+    answer2Controller = new TextEditingController();
+    answer3Controller = new TextEditingController();
+    answer4Controller = new TextEditingController();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       //* Appbar
@@ -111,7 +121,9 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                       backgroundColor: darkGreenColor,
                                       height: 50,
                                       width: 50,
-                                      btnOnTap: null,
+                                      btnOnTap: () {
+                                        Navigator.pop(context);
+                                      },
                                     ),
                                     // Center button - Submit
                                     Expanded(
@@ -165,8 +177,13 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
         'answer4': answer4Controller.text,
       };
 
-      dataBaseService.addQuestionData(questionMap, widget.quizId).then((value) {
-        _isLoading = false;
+      print('ANSWER1 = ' + answer1Controller.text);
+      await dataBaseService
+          .addQuestionData(questionMap, widget.quizId)
+          .then((value) {
+        setState(() {
+          _isLoading = false;
+        });
       });
     }
   }
