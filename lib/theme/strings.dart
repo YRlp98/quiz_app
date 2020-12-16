@@ -28,6 +28,7 @@ final letsStartQuizTextEn = "Let's start your quiz!";
 final forgetPwTextEn = 'Forget passhowrd?';
 final dontHaveAccountTextEn = "Dont't have an account? ";
 final haveaccountTextEn = "Allready have an account? ";
+final noQuizTextEn = "No quiz has been added yet :|";
 
 // Errors
 final emptyEmailErrorTextEn = 'Please enter email';

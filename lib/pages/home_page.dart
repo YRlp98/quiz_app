@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../services/database.dart';
 import '../theme/colors.dart';
 import '../theme/icons.dart';
 import '../theme/images.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
+import '../widgets/card_widgets.dart';
 import '../widgets/image_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,6 +18,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Stream quizStream;
+
+  DataBaseService dataBaseService = new DataBaseService();
+
+  // Get data from database
+  @override
+  void initState() {
+    dataBaseService.getQuizData().then((value) {
+      quizStream = value;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,16 +48,14 @@ class _HomePageState extends State<HomePage> {
       //* Body
       body: SafeArea(
         child: Container(
-          width: 400,
-          height: 400,
-          color: Colors.amber,
-          child: Text('BODY'),
+          margin: const EdgeInsets.symmetric(horizontal: 18),
+          child: quizList(),
         ),
       ),
     );
   }
 
-  //* Appbar
+  //* Appbar Functions
   IconButtonWidget appbarNotificationsIcon() {
     return IconButtonWidget(
       icon: notificationstiIcon,
@@ -92,6 +105,34 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  //* Body
-
+  //* Body Functions
+  Widget quizList() {
+    return Container(
+      child: StreamBuilder(
+        stream: quizStream,
+        builder: (context, snapshot) {
+          return snapshot.data == null
+              ? Center(
+                  child: Text(
+                    noQuizTextEn,
+                    style: heading4BlackEnStyle,
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context, index) {
+                    return QuizCardWidget(
+                      imageUrl:
+                          snapshot.data.documents[index].data['quizImageUrl'],
+                      quizDesc: snapshot
+                          .data.documents[index].data['quizDescription'],
+                      quizTitle:
+                          snapshot.data.documents[index].data['quizTitle'],
+                      ontap: () {},
+                    );
+                  });
+        },
+      ),
+    );
+  }
 }

@@ -38,6 +38,12 @@ final TextStyle heading4BlackEnStyle = TextStyle(
 );
 
 // Heading 5
+final TextStyle heading5BoldWhiteEnStyle = TextStyle(
+  color: whiteColor,
+  fontSize: 16,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w700,
+);
 
 // Heading 6
 final TextStyle heaing6BlackEnStyle = TextStyle(
@@ -48,6 +54,12 @@ final TextStyle heaing6BlackEnStyle = TextStyle(
 );
 
 // Paragraph
+final TextStyle paragraphWhiteEnStyle = TextStyle(
+  color: whiteColor,
+  fontSize: 14,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w400,
+);
 
 // text buttons
 final TextStyle textButtonEnStyle = TextStyle(
