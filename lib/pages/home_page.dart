@@ -9,6 +9,7 @@ import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
 import '../widgets/card_widgets.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/loading_widgets.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     dataBaseService.getQuizData().then((value) {
       quizStream = value;
+      setState(() {}); // To refresh page after getting data
     });
     super.initState();
   }
@@ -112,13 +114,10 @@ class _HomePageState extends State<HomePage> {
         stream: quizStream,
         builder: (context, snapshot) {
           return snapshot.data == null
-              ? Center(
-                  child: Text(
-                    noQuizTextEn,
-                    style: heading4BlackEnStyle,
-                  ),
-                )
+              ? bodyLoading()
               : ListView.builder(
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (context, index) {
                     return QuizCardWidget(
@@ -132,6 +131,22 @@ class _HomePageState extends State<HomePage> {
                     );
                   });
         },
+      ),
+    );
+  }
+
+  Center bodyLoading() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            noQuizTextEn,
+            style: heading4BlackEnStyle,
+          ),
+          SizedBox(height: 20),
+          CircularLoadingWidget(),
+        ],
       ),
     );
   }
