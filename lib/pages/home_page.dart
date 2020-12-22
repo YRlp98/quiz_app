@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/pages/quiz_page.dart';
 
 import '../services/database.dart';
 import '../theme/colors.dart';
@@ -12,7 +13,9 @@ import '../widgets/image_widgets.dart';
 import '../widgets/loading_widgets.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({
+    Key key,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -26,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   // Get data from database
   @override
   void initState() {
-    dataBaseService.getQuizData().then((value) {
+    dataBaseService.getQuizesData().then((value) {
       quizStream = value;
       setState(() {}); // To refresh page after getting data
     });
@@ -127,7 +130,21 @@ class _HomePageState extends State<HomePage> {
                           .data.documents[index].data['quizDescription'],
                       quizTitle:
                           snapshot.data.documents[index].data['quizTitle'],
-                      ontap: () {},
+                      ontap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuizPage(
+                              quizId:
+                                  snapshot.data.documents[index].data['quizId'],
+                              quizImageUrl: snapshot
+                                  .data.documents[index].data['quizImageUrl'],
+                              quizTitle: snapshot
+                                  .data.documents[index].data['quizTitle'],
+                            ),
+                          ),
+                        );
+                      },
                     );
                   });
         },
@@ -141,7 +158,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            noQuizTextEn,
+            waitForDataTextEn,
             style: heading4BlackEnStyle,
           ),
           SizedBox(height: 20),

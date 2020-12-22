@@ -37,6 +37,13 @@ final TextStyle heading4BlackEnStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+final TextStyle heading4RegularBlackEnStyle = TextStyle(
+  color: blakColor,
+  fontSize: 18,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w400,
+);
+
 // Heading 5
 final TextStyle heading5BoldWhiteEnStyle = TextStyle(
   color: whiteColor,
@@ -59,6 +66,20 @@ final TextStyle paragraphWhiteEnStyle = TextStyle(
   fontSize: 14,
   fontFamily: 'Poppins',
   fontWeight: FontWeight.w400,
+);
+
+final TextStyle paragraphDarkestGreyEnStyle = TextStyle(
+  color: darkestGreyColor,
+  fontSize: 14,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w400,
+);
+
+final TextStyle paragraphDarkestGreyBoldEnStyle = TextStyle(
+  color: darkestGreyColor,
+  fontSize: 14,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w700,
 );
 
 // text buttons

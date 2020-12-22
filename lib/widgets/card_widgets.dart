@@ -34,6 +34,7 @@ class QuizCardWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
               ),
+              // Daark layer
               Container(
                 padding: const EdgeInsets.only(
                     top: 20, right: 20, left: 20, bottom: 20),
@@ -44,15 +45,19 @@ class QuizCardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Quiz title
-                    Text(
-                      quizTitle,
-                      style: heading5BoldWhiteEnStyle,
+                    RichText(
+                      overflow: TextOverflow.ellipsis,
+                      text: TextSpan(
+                        text: quizTitle,
+                        style: heading5BoldWhiteEnStyle,
+                      ),
                     ),
                     SizedBox(height: 10),
                     // Quiz desc
                     Text(
                       quizDesc,
                       style: paragraphWhiteEnStyle,
+                      maxLines: 2,
                     ),
                   ],
                 ),
@@ -62,6 +67,7 @@ class QuizCardWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
+        ontap();
         print('QUIZ CARD');
       },
     );

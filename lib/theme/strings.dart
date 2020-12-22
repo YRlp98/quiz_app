@@ -21,6 +21,8 @@ final questionTextEn = 'Question';
 final answer1TextEn = 'Answer 1 (Correct Answer)';
 final answerTextEn = 'Answer';
 final submitTextEn = 'Submit';
+final quizTextEn = 'Quiz';
+final finishTextEn = 'Finish';
 
 // Messages
 final helloTextEn = 'Hello, user';
@@ -29,6 +31,7 @@ final forgetPwTextEn = 'Forget passhowrd?';
 final dontHaveAccountTextEn = "Dont't have an account? ";
 final haveaccountTextEn = "Allready have an account? ";
 final noQuizTextEn = "No quiz has been added yet :|";
+final waitForDataTextEn = "Wait for data to get loaded..";
 
 // Errors
 final emptyEmailErrorTextEn = 'Please enter email';

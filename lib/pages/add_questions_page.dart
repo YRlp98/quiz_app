@@ -170,7 +170,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
       });
 
       Map<String, String> questionMap = {
-        'quiestion': questionController.text,
+        'question': questionController.text,
         'answer1': answer1Controller.text,
         'answer2': answer2Controller.text,
         'answer3': answer3Controller.text,
@@ -183,6 +183,11 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
           .then((value) {
         setState(() {
           _isLoading = false;
+          questionController.text = '';
+          answer1Controller.text = '';
+          answer2Controller.text = '';
+          answer3Controller.text = '';
+          answer4Controller.text = '';
         });
       });
     }

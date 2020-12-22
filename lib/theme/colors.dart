@@ -6,6 +6,7 @@ Color blakColor = const Color(0xff000000);
 Color whiteColor = const Color(0xffffffff);
 Color greenColor = const Color(0xff49d587);
 Color darkGreenColor = const Color(0xff5ac58a);
+Color redColor = const Color(0xffff7575);
 Color darkestGreyColor = const Color(0xff203442);
 Color darkerGreyColor = const Color(0xff2F4656);
 Color darkGreyColor = const Color(0xff3E5463);
