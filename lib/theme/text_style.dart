@@ -28,6 +28,12 @@ final TextStyle heading1GreenEnStyle = TextStyle(
 
 // Heading 2
 // Heading 3
+final TextStyle heading4GreenEnStyle = TextStyle(
+  color: greenColor,
+  fontSize: 24,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w700,
+);
 
 // Heading 4
 final TextStyle heading4BlackEnStyle = TextStyle(

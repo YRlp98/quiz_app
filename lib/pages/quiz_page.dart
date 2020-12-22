@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/theme/colors.dart';
-import 'package:quiz_app/widgets/button_widgets.dart';
 
 import '../models/questionModel.dart';
 import '../services/database.dart';
+import '../theme/colors.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
+import '../widgets/button_widgets.dart';
+import '../widgets/dialog_widgets.dart';
 import '../widgets/loading_widgets.dart';
 import '../widgets/quiz_widgets.dart';
 
@@ -112,7 +113,17 @@ class _QuizPageState extends State<QuizPage> {
                 LongButtonWidget(
                   text: finishTextEn,
                   color: greenColor,
-                  btnOnTap: () {},
+                  btnOnTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => ResultDialogWidget(
+                        total: total.toString(),
+                        correct: _correct.toString(),
+                        incorrect: _incorrect.toString(),
+                        titleMessage: quizIsOverTextEn,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
