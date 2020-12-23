@@ -75,6 +75,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                 // Question
                                 TextFormFiledWidget(
                                   hint: questionTextEn,
+                                  label: questionTextEn,
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: questionController,
                                 ),
@@ -82,6 +83,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                 // Answer 1
                                 TextFormFiledWidget(
                                   hint: answer1TextEn,
+                                  label: answer1TextEn,
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: answer1Controller,
                                 ),
@@ -89,6 +91,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                 // Answer 2
                                 TextFormFiledWidget(
                                   hint: answerTextEn + ' 2',
+                                  label: answerTextEn + ' 2',
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: answer2Controller,
                                 ),
@@ -96,6 +99,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                 // Answer 3
                                 TextFormFiledWidget(
                                   hint: answerTextEn + ' 3',
+                                  label: answerTextEn + ' 3',
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: answer3Controller,
                                 ),
@@ -103,6 +107,7 @@ class _AddQuestionsPageState extends State<AddQuestionsPage> {
                                 // Answer 4
                                 TextFormFiledWidget(
                                   hint: answerTextEn + ' 4',
+                                  label: answerTextEn + ' 4',
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: answer4Controller,
                                 ),

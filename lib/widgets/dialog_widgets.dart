@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pages/home_page.dart';
+import '../pages/main_page.dart';
 import '../theme/colors.dart';
 import '../theme/strings.dart';
 import '../theme/text_style.dart';
@@ -133,7 +133,7 @@ class ResultDialogWidget extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => MainPage(),
                   ),
                 );
               },

@@ -59,12 +59,15 @@ class _SignInPageState extends State<SignInPage> {
                                 // Email text field
                                 TextFormFiledWidget(
                                   hint: emailTextEn,
+                                  label: emailTextEn,
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: emailController,
                                 ),
                                 SizedBox(height: 10),
                                 // password text field
-                                PasswordTextFormFiledWidget(),
+                                PasswordTextFormFiledWidget(
+                                  label: passwordTextEn,
+                                ),
                                 SizedBox(height: 10),
                                 // Forget password
                                 forgetPassword(),

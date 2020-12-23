@@ -59,6 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 // Name text field
                                 TextFormFiledWidget(
                                   hint: nameTextEn,
+                                  label: nameTextEn,
                                   errorMessage: emptyNameErrorTextEn,
                                   textEditingController: nameController,
                                 ),
@@ -66,12 +67,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                 // Email text field
                                 TextFormFiledWidget(
                                   hint: emailTextEn,
+                                  label: emailTextEn,
                                   errorMessage: emptyEmailErrorTextEn,
                                   textEditingController: emailController,
                                 ),
                                 SizedBox(height: 10),
                                 // password text field
-                                PasswordTextFormFiledWidget(),
+                                PasswordTextFormFiledWidget(
+                                  label: passwordTextEn,
+                                ),
                                 SizedBox(height: 20),
                                 // Login Button
                                 LongButtonWidget(

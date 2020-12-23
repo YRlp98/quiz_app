@@ -66,6 +66,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                 // Title
                                 TextFormFiledWidget(
                                   hint: titleTextEn,
+                                  label: titleTextEn,
                                   errorMessage: emptytitleErrorTextEn,
                                   textEditingController: titleController,
                                 ),
@@ -73,6 +74,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                 // Image
                                 TextFormFiledWidget(
                                   hint: imageURLTextEn,
+                                  label: imageURLTextEn,
                                   errorMessage: emptyimageUrlErrorTextEn,
                                   textEditingController: imageController,
                                 ),
@@ -80,6 +82,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                 // Description
                                 TextFormFiledWidget(
                                   hint: descriptionTextEn,
+                                  label: descriptionTextEn,
                                   errorMessage: emptydesciptionErrorTextEn,
                                   textEditingController: descController,
                                 ),

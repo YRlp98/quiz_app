@@ -110,6 +110,7 @@ class _QuizPageState extends State<QuizPage> {
                                   );
                                 }),
                       ),
+                // Finish button
                 LongButtonWidget(
                   text: finishTextEn,
                   color: greenColor,
@@ -125,6 +126,7 @@ class _QuizPageState extends State<QuizPage> {
                     );
                   },
                 ),
+                SizedBox(height: 25),
               ],
             ),
           ),

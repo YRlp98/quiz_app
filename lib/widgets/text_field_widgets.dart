@@ -9,8 +9,7 @@ import 'icon_widgets.dart';
 //* Text field
 class TextFormFiledWidget extends StatelessWidget {
   static String input;
-  final String hint;
-  final String errorMessage;
+  final String hint, label, errorMessage;
   final TextEditingController textEditingController;
 
   TextFormFiledWidget({
@@ -18,6 +17,7 @@ class TextFormFiledWidget extends StatelessWidget {
     @required this.hint,
     @required this.errorMessage,
     @required this.textEditingController,
+    @required this.label,
   }) : super(key: key);
 
   @override
@@ -34,6 +34,8 @@ class TextFormFiledWidget extends StatelessWidget {
         ),
         hintText: hint,
         hintStyle: hintEnStyle,
+        labelText: label,
+        labelStyle: hintEnStyle,
       ),
       controller: textEditingController,
       onChanged: (value) {
@@ -45,8 +47,11 @@ class TextFormFiledWidget extends StatelessWidget {
 
 //* Password text filed
 class PasswordTextFormFiledWidget extends StatefulWidget {
+  final String label;
+
   PasswordTextFormFiledWidget({
     Key key,
+    @required this.label,
   }) : super(key: key);
 
   @override
@@ -74,6 +79,8 @@ class PasswordTextFormFiledWidgetState
         ),
         hintText: passwordTextEn,
         hintStyle: hintEnStyle,
+        labelText: widget.label,
+        labelStyle: hintEnStyle,
         suffixIcon: GestureDetector(
           child: _showPassword
               ? TextFieldSVGIconsWidget(icon: showIcon)
