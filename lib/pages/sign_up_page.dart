@@ -24,7 +24,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
-  AuthServvice authServvice = new AuthServvice();
+  AuthService authService = new AuthService();
   TextEditingController nameController, emailController;
 
   @override
@@ -145,7 +145,7 @@ class _SignUpPageState extends State<SignUpPage> {
       });
 
       // Sign-up and naviage to home page
-      authServvice
+      authService
           .signUpWithEmailandPassword(TextFormFiledWidget.input,
               PasswordTextFormFiledWidgetState.password)
           .then(

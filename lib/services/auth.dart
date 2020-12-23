@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quiz_app/models/f_user.dart';
 
-class AuthServvice {
+class AuthService {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Accept firebase user as a user

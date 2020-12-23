@@ -24,7 +24,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
-  AuthServvice authServvice = new AuthServvice();
+  AuthService authService = new AuthService();
   TextEditingController emailController;
 
   @override
@@ -150,7 +150,7 @@ class _SignInPageState extends State<SignInPage> {
       });
 
       // Login and naviage to home page
-      authServvice
+      authService
           .signInEmailAndPass(TextFormFiledWidget.input,
               PasswordTextFormFiledWidgetState.password)
           .then(
