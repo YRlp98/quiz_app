@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/helper/helperFunctions.dart';
 
+import '../helper/helperFunctions.dart';
 import '../services/auth.dart';
 import '../theme/colors.dart';
 import '../theme/images.dart';
@@ -111,7 +111,14 @@ class _SignUpPageState extends State<SignUpPage> {
         TextButtonWidget(
           text: loginNowTextEn,
           textStyle: textButtonBigBoldGreenEnStyle,
-          widget: SignInPage(),
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignInPage(),
+              ),
+            );
+          },
         ),
       ],
     );

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class TextButtonWidget extends StatelessWidget {
   final String text;
   final TextStyle textStyle;
-  final Widget widget;
+  final Function onTap;
 
   const TextButtonWidget({
     Key key,
     @required this.text,
-    this.widget,
     this.textStyle,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -22,12 +22,7 @@ class TextButtonWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => widget,
-          ),
-        );
+        onTap();
         print('TEXT BUTTON WIDGET');
       },
     );

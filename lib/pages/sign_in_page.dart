@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/helper/helperFunctions.dart';
 
+import '../helper/helperFunctions.dart';
 import '../services/auth.dart';
 import '../theme/colors.dart';
 import '../theme/images.dart';
@@ -70,7 +70,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                                 SizedBox(height: 10),
                                 // Forget password
-                                forgetPassword(),
+                                forgetPasswordButton(),
                                 SizedBox(height: 20),
                                 // Login Button
                                 LongButtonWidget(
@@ -106,19 +106,16 @@ class _SignInPageState extends State<SignInPage> {
         TextButtonWidget(
           text: registerNowTextEn,
           textStyle: textButtonBigBoldGreenEnStyle,
-          widget: SignUpPage(),
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignUpPage(),
+              ),
+            );
+          },
         ),
       ],
-    );
-  }
-
-  Align forgetPassword() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: TextButtonWidget(
-        text: forgetPwTextEn,
-        textStyle: textButtonBigEnStyle,
-      ),
     );
   }
 
@@ -171,5 +168,21 @@ class _SignInPageState extends State<SignInPage> {
         },
       );
     }
+  }
+
+  //* Forget password
+  Align forgetPasswordButton() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: TextButtonWidget(
+        text: forgetPwTextEn,
+        textStyle: textButtonBigEnStyle,
+        onTap: forgetPassword(),
+      ),
+    );
+  }
+
+  forgetPassword() {
+    authService.resetPassword(TextFormFiledWidget.input);
   }
 }
