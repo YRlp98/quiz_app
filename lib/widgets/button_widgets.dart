@@ -3,6 +3,65 @@ import 'package:flutter_svg/svg.dart';
 
 import '../theme/colors.dart';
 import '../theme/text_style.dart';
+import 'icon_widgets.dart';
+
+//* Long buton with icon
+class LongButtonWithIconWidget extends StatelessWidget {
+  final String text, icon;
+  final Color color, iconColor;
+  final TextStyle buttonTextStyle;
+  final Widget widget;
+  final Function btnOnTap;
+  final double height;
+
+  const LongButtonWithIconWidget({
+    Key key,
+    @required this.text,
+    @required this.icon,
+    @required this.color,
+    @required this.buttonTextStyle,
+    @required this.iconColor,
+    this.widget,
+    this.btnOnTap,
+    this.height,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 2.5, horizontal: 15),
+        height: 52,
+        width: MediaQuery.of(context).size.width - 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: color,
+        ),
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Text
+            Text(
+              text,
+              style: buttonTextStyle,
+            ),
+            // Icon
+            SVGIconWidget(
+              icon: icon,
+              color: iconColor,
+            ),
+          ],
+        ),
+      ),
+      onTap: () {
+        btnOnTap();
+        print('LONG BUTTON WITH ICON');
+      },
+    );
+  }
+}
 
 //* Long buton
 class LongButtonWidget extends StatelessWidget {
@@ -34,7 +93,7 @@ class LongButtonWidget extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           text,
-          style: buttonEnStyle,
+          style: buttonLightEnStyle,
         ),
       ),
       onTap: () {
@@ -75,7 +134,7 @@ class MediumButtonWidget extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           text,
-          style: buttonEnStyle,
+          style: buttonLightEnStyle,
         ),
       ),
       onTap: () {

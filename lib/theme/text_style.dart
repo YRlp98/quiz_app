@@ -111,8 +111,15 @@ final TextStyle textButtonBigBoldGreenEnStyle = TextStyle(
 );
 
 // button
-final TextStyle buttonEnStyle = TextStyle(
+final TextStyle buttonLightEnStyle = TextStyle(
   color: whiteColor,
+  fontSize: 14,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w400,
+);
+
+final TextStyle buttonDarkEnStyle = TextStyle(
+  color: darkestGreyColor,
   fontSize: 14,
   fontFamily: 'Poppins',
   fontWeight: FontWeight.w400,

@@ -1,15 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/theme/images.dart';
-import 'package:quiz_app/theme/strings.dart';
-import 'package:quiz_app/theme/text_style.dart';
-import 'package:quiz_app/widgets/drop_down_button_widgets.dart';
-import 'package:quiz_app/widgets/image_widgets.dart';
 
 import '../helper/helperFunctions.dart';
 import '../services/auth.dart';
 import '../theme/colors.dart';
+import '../theme/icons.dart';
+import '../theme/images.dart';
+import '../theme/strings.dart';
+import '../theme/text_style.dart';
 import '../widgets/button_widgets.dart';
+import '../widgets/dropdown_button_wdgets/language_drodown_widget.dart';
+import '../widgets/dropdown_button_wdgets/theme_dropdown_widget.dart';
+import '../widgets/image_widgets.dart';
 import 'sign_in_page.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -42,36 +44,80 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Column(
           children: <Widget>[
             accountInfo(),
-            //* App settings
-            Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 23, vertical: 7.5),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(height: 15),
-                    // Title
-                    Text(
-                      appSettingsTextEn,
-                      style: paragraphDarkestGreyBoldEnStyle,
-                    ),
-                    SizedBox(height: 10),
-                    // Language
-                    LanguageDropDownButtonWidget(),
-                    SizedBox(height: 10),
-                    // Theme
-                    ThemeDropDownButtonWidget(),
-                  ],
-                )),
+            appSettings(),
+            aboutSettings(),
+            SizedBox(height: 35),
+            //* Logout
+            LongButtonWidget(
+              text: logoutTextEn,
+              color: redColor,
+              btnOnTap: signOut,
+            ),
           ],
         ),
       ),
-      // LongButtonWidget(
-      //   text: 'Logout',
-      //   color: greenColor,
-      //   btnOnTap: signOut,
-      // ),
+    );
+  }
+
+  Container aboutSettings() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 23, vertical: 7.5),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: 15),
+          // Title
+          Text(
+            aboutTextEn,
+            style: paragraphDarkestGreyBoldEnStyle,
+          ),
+          SizedBox(height: 10),
+          // About
+          LongButtonWithIconWidget(
+            text: aboutQuizAppTextEn,
+            color: lightestGreyColor,
+            icon: arrowRightIcon,
+            iconColor: darkGreyColor,
+            buttonTextStyle: buttonDarkEnStyle,
+            btnOnTap: () {},
+          ),
+          SizedBox(height: 10),
+          // Developer website
+          LongButtonWithIconWidget(
+            text: developerWebsiteTextEn,
+            color: lightestGreyColor,
+            icon: arrowRightIcon,
+            iconColor: darkGreyColor,
+            buttonTextStyle: buttonDarkEnStyle,
+            btnOnTap: () {},
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container appSettings() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 23, vertical: 7.5),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: 15),
+          // Title
+          Text(
+            appSettingsTextEn,
+            style: paragraphDarkestGreyBoldEnStyle,
+          ),
+          SizedBox(height: 10),
+          // Language
+          LanguageDropDownButtonWidget(),
+          SizedBox(height: 10),
+          // Theme
+          ThemeDropdownWidget(),
+        ],
+      ),
     );
   }
 

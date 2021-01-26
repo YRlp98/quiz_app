@@ -31,6 +31,8 @@ final persianTextEn = 'Persian - فارسی (Soon)';
 final themeTextEn = 'Theme';
 final lightTextEn = 'Light (Default)';
 final darkTextEn = 'Dark (Soon)';
+final aboutTextEn = 'ABOUT';
+final logoutTextEn = 'Logout';
 
 // Messages
 final helloTextEn = 'Hello, user';
@@ -45,6 +47,9 @@ final youAnswerdTextEn = 'You answered ';
 final ansersCorrectlyTextEn = ' answers correctly and ';
 final answersIncorrectlyTextEn = ' answers incorrectly';
 final youHaveBeenLoggedInAsTextEn = 'You have been logged in as:';
+final aboutQuizAppTextEn = 'About Quiz app';
+final developerWebsiteTextEn = 'Developer Website';
+
 
 // Errors
 final emptyEmailErrorTextEn = 'Please enter email';

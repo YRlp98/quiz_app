@@ -9,3 +9,4 @@ const settingsBoldIcon = 'assets/icons/settings_bold.svg';
 const arrowLeftCircleIcon = 'assets/icons/arrow_left_circle.svg';
 const arrowRightCircleIcon = 'assets/icons/arrow_right_circle.svg';
 const arrowDownIcon = 'assets/icons/arrow_down.svg';
+const arrowRightIcon = 'assets/icons/arrow_right.svg';
