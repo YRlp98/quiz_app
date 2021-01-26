@@ -37,6 +37,7 @@ final quizIsOverTextEn = "The quiz is over!";
 final youAnswerdTextEn = 'You answered ';
 final ansersCorrectlyTextEn = ' answers correctly and ';
 final answersIncorrectlyTextEn = ' answers incorrectly';
+final youHaveBeenLoggedInAsTextEn = 'You have been logged in as:';
 
 // Errors
 final emptyEmailErrorTextEn = 'Please enter email';

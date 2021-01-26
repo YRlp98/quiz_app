@@ -6,7 +6,6 @@ class ImageWidget extends StatelessWidget {
   final String image;
   final double height;
   final double width;
-  final double radius;
   final Color color;
 
   const ImageWidget({
@@ -15,7 +14,6 @@ class ImageWidget extends StatelessWidget {
     this.height,
     this.width,
     this.color,
-    this.radius,
   }) : super(key: key);
 
   @override
