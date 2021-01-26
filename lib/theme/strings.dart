@@ -24,6 +24,13 @@ final submitTextEn = 'Submit';
 final quizTextEn = 'Quiz';
 final finishTextEn = 'Finish';
 final doneTextEn = 'Done';
+final appSettingsTextEn = 'APP SETTINGS';
+final languageTextEn = 'Language';
+final englishTextEn = 'English';
+final persianTextEn = 'Persian - فارسی (Soon)';
+final themeTextEn = 'Theme';
+final lightTextEn = 'Light (Default)';
+final darkTextEn = 'Dark (Soon)';
 
 // Messages
 final helloTextEn = 'Hello, user';
