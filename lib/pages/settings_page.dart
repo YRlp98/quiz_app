@@ -46,6 +46,7 @@ class _SettingsPageState extends State<SettingsPage> {
             accountInfo(),
             appSettings(),
             aboutSettings(),
+            supportSettings(),
             SizedBox(height: 35),
             //* Logout
             LongButtonWidget(
@@ -55,6 +56,34 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Container supportSettings() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 23, vertical: 7.5),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: 15),
+          // Title
+          Text(
+            supportTextEn,
+            style: paragraphDarkestGreyBoldEnStyle,
+          ),
+          SizedBox(height: 10),
+          // Feedback
+          LongButtonWithIconWidget(
+            text: feedbackTextEn,
+            color: lightestGreyColor,
+            icon: arrowRightIcon,
+            iconColor: darkGreyColor,
+            buttonTextStyle: buttonDarkEnStyle,
+            btnOnTap: () {},
+          ),
+        ],
       ),
     );
   }

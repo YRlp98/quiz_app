@@ -33,6 +33,8 @@ final lightTextEn = 'Light (Default)';
 final darkTextEn = 'Dark (Soon)';
 final aboutTextEn = 'ABOUT';
 final logoutTextEn = 'Logout';
+final supportTextEn = 'SUPPORT';
+final feedbackTextEn = 'Feedback';
 
 // Messages
 final helloTextEn = 'Hello, user';
