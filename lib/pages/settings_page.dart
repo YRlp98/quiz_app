@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../helper/helperFunctions.dart';
 import '../services/auth.dart';
@@ -41,6 +42,14 @@ class _SettingsPageState extends State<SettingsPage> {
     });
   }
 
+  _launchURL(String urlAddress) async {
+    if (await canLaunch(urlAddress)) {
+      await launch(urlAddress);
+    } else {
+      throw 'Could not launch $urlAddress';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
               color: redColor,
               btnOnTap: signOut,
             ),
+            SizedBox(height: 50),
           ],
         ),
       ),
@@ -90,7 +100,9 @@ class _SettingsPageState extends State<SettingsPage> {
             icon: arrowRightIcon,
             iconColor: darkGreyColor,
             buttonTextStyle: buttonDarkEnStyle,
-            btnOnTap: () {},
+            btnOnTap: () {
+              _launchURL('https://github.com/YRlp98/quiz_app/issues');
+            },
           ),
         ],
       ),
@@ -118,7 +130,9 @@ class _SettingsPageState extends State<SettingsPage> {
             icon: arrowRightIcon,
             iconColor: darkGreyColor,
             buttonTextStyle: buttonDarkEnStyle,
-            btnOnTap: () {},
+            btnOnTap: () {
+              _launchURL('https://github.com/YRlp98/quiz_app');
+            },
           ),
           SizedBox(height: 10),
           // Developer website
@@ -128,7 +142,9 @@ class _SettingsPageState extends State<SettingsPage> {
             icon: arrowRightIcon,
             iconColor: darkGreyColor,
             buttonTextStyle: buttonDarkEnStyle,
-            btnOnTap: () {},
+            btnOnTap: () {
+              _launchURL('https://yrlp.ir');
+            },
           ),
         ],
       ),
