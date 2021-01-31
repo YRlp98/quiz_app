@@ -12,6 +12,7 @@ import '../widgets/button_widgets.dart';
 import '../widgets/dropdown_button_wdgets/language_drodown_widget.dart';
 import '../widgets/dropdown_button_wdgets/theme_dropdown_widget.dart';
 import '../widgets/image_widgets.dart';
+import '../widgets/loading_widgets.dart';
 import 'sign_in_page.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
   AuthService authService = new AuthService();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser user;
+  String userEmail;
 
   @override
   void initState() {
@@ -34,7 +36,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
   initUser() async {
     user = await _auth.currentUser();
-    setState(() {});
+    setState(() {
+      userEmail = user.email;
+    });
   }
 
   @override
@@ -43,7 +47,12 @@ class _SettingsPageState extends State<SettingsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            accountInfo(),
+            userEmail == null
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: CircularLoadingWidget(),
+                  )
+                : accountInfo(),
             appSettings(),
             aboutSettings(),
             supportSettings(),
@@ -173,7 +182,7 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(height: 8),
             // Email
             Text(
-              user.email,
+              userEmail,
               style: heaing6BlackEnStyle,
             ),
             SizedBox(height: 10),
