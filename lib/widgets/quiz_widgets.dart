@@ -48,9 +48,15 @@ class _OptionTileWidgetState extends State<OptionTileWidget> {
           ),
           SizedBox(width: 10),
           // Tile option
-          Text(
-            widget.answer,
-            style: paragraphDarkestGreyEnStyle,
+          Flexible(
+            child: RichText(
+              overflow: TextOverflow.ellipsis,
+              strutStyle: StrutStyle(fontSize: 12.0),
+              text: TextSpan(
+                text: widget.answer,
+                style: paragraphDarkestGreyEnStyle,
+              ),
+            ),
           ),
         ],
       ),
